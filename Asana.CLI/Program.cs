@@ -1,4 +1,5 @@
 ﻿using Asana.Library.Models;
+using Asana.Library.Services;
 using System;
 
 namespace Asana
@@ -7,12 +8,10 @@ namespace Asana
     {
         public static void Main(string[] args)
         {
-            var toDos = new List<ToDo>();
+            var todoService = ToDoServiceProxy.Current;
             var projects = new List<Project>();
-            int choiceInt;
-            var itemCount = 0;
-            var projectCount = 0;
-            var toDoChoice = 0;
+            int projectCount = 0;
+            int choiceInt = 0;
             do
             {
                 Console.WriteLine("Choose a menu option:");
@@ -36,54 +35,49 @@ namespace Asana
                     switch (choiceInt)
                     {
                         case 1:
-                            Console.Write("Name:");
+                            Console.Write("Name: ");
                             var name = Console.ReadLine();
-                            Console.Write("Description:");
+                            Console.Write("Description: ");
                             var description = Console.ReadLine();
 
-                            toDos.Add(new ToDo
+                            todoService.AddOrUpdate(new ToDo
                             {
                                 Name = name,
                                 Description = description,
                                 IsCompleted = false,
-                                Id = ++itemCount
+                                Id = 0 // will be set by service
                             });
                             break;
                         case 2:
-                            toDos.ForEach(Console.WriteLine);
+                            todoService.DisplayToDos(true);
                             break;
                         case 3:
-                            toDos.Where(t => (t != null) && !(t?.IsCompleted ?? false))
-                                .ToList()
-                                .ForEach(Console.WriteLine);
+                            todoService.DisplayToDos();
                             break;
                         case 4:
 
-                            toDos.ForEach(Console.WriteLine);
+                            todoService.DisplayToDos(true);
                             Console.Write("ToDo to Delete: ");
-                            toDoChoice = int.Parse(Console.ReadLine() ?? "0");
-
-                            var reference = toDos.FirstOrDefault(t => t.Id == toDoChoice);
-                            if (reference != null)
-                            {
-                                toDos.Remove(reference);
-                            }
+                            var toDoChoice = int.Parse(Console.ReadLine() ?? "0");
+                            var reference = todoService.GetById(toDoChoice);
+                            todoService.DeleteToDo(reference);
 
                             break;
                         case 5:
 
-                            toDos.ForEach(Console.WriteLine);
+                            todoService.DisplayToDos(true);
                             Console.Write("ToDo to Update: ");
-                            toDoChoice = int.Parse(Console.ReadLine() ?? "0");
-                            var updateReference = toDos.FirstOrDefault(t => t.Id == toDoChoice);
+                            var toDoChoiceUpdate = int.Parse(Console.ReadLine() ?? "0");
+                            var referenceUpdate = todoService.GetById(toDoChoiceUpdate);
 
-                            if (updateReference != null)
+                            if (referenceUpdate != null)
                             {
-                                Console.Write("Name:");
-                                updateReference.Name = Console.ReadLine();
-                                Console.Write("Description:");
-                                updateReference.Description = Console.ReadLine();
+                                Console.Write("Name: ");
+                                referenceUpdate.Name = Console.ReadLine();
+                                Console.Write("Description: ");
+                                referenceUpdate.Description = Console.ReadLine();
                             }
+                            todoService.AddOrUpdate(referenceUpdate);
 
                             break;
                         case 6:
