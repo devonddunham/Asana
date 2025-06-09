@@ -7,20 +7,54 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asana.CLI", "Asana.CLI\Asan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asana.Library", "Asana.Library\Asana.Library.csproj", "{51EFED9B-A826-47ED-B975-FB3F99DB366D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asana.Maui", "Asana.Maui\Asana.Maui.csproj", "{1C198420-0D72-4E54-8D88-786221B9610E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|x64.Build.0 = Debug|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Debug|x86.Build.0 = Debug|Any CPU
 		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|x64.ActiveCfg = Release|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|x64.Build.0 = Release|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{6ED4CD5F-1E6B-4CDF-8352-469E9F2851DC}.Release|x86.Build.0 = Release|Any CPU
 		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|x64.Build.0 = Debug|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Debug|x86.Build.0 = Debug|Any CPU
 		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|x64.ActiveCfg = Release|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|x64.Build.0 = Release|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|x86.ActiveCfg = Release|Any CPU
+		{51EFED9B-A826-47ED-B975-FB3F99DB366D}.Release|x86.Build.0 = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|x64.Build.0 = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Debug|x86.Build.0 = Debug|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|x64.ActiveCfg = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|x64.Build.0 = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|x86.ActiveCfg = Release|Any CPU
+		{1C198420-0D72-4E54-8D88-786221B9610E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
