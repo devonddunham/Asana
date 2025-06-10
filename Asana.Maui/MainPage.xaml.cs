@@ -1,9 +1,19 @@
-﻿namespace Asana.Maui;
+﻿using Asana.Maui.ViewModels;
 
-public partial class MainPage : ContentPage
+namespace Asana.Maui
 {
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+            BindingContext = new MainPageViewModel();
+        }
+
+        private void AddNewClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync("//ToDoDetails");
+        }
+    }
+
 }
