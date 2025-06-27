@@ -14,6 +14,12 @@ namespace Asana.Library.Models
         public bool? IsCompleted { get; set; }
         public int Id { get; set; }
 
+        public ToDo()
+        {
+            IsCompleted = false;
+            Id = 0;
+        }
+
         public override string ToString()
         {
             return $"[{Id}] {Name} - {Description}";

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Asana.Maui.MainPage">
+             x:Class="Asana.Maui.MainPage"
+             NavigatedTo="ContentPage_NavigatedTo"
+             NavigatedFrom="ContentPage_NavigatedFrom">
 
     <ScrollView>
         <VerticalStackLayout
@@ -17,7 +19,7 @@
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="Show Completed Tasks:"/>
                     <CheckBox Margin="5" Grid.Column="1" IsChecked="{Binding IsShowCompleted}"/>
@@ -26,6 +28,7 @@
                 <ListView
                 Grid.Row="1"
                 ItemsSource="{Binding ToDos}"
+                SelectedItem="{Binding SelectedToDo}"
                 >
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -36,30 +39,29 @@
                                         <ColumnDefinition Width="10*"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <CheckBox IsChecked="{Binding IsCompleted}" Grid.Column="0"/>
+                                    <CheckBox IsChecked="{Binding Model.IsCompleted}" Grid.Column="0"/>
 
                                     <Grid Grid.Column="1">
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
-                                        <Label TextColor="Red" Grid.Row="0" Text="{Binding Name}"/>
-                                        <Label Grid.Row="1" Text="{Binding Description}"/>
+                                        <Label TextColor="Red" Grid.Row="0" Text="{Binding Model.Name}"/>
+                                        <Label Grid.Row="1" Text="{Binding Model.Description}"/>
                                     </Grid>
 
-                                    <Button Grid.Column="2" Text="Delete"/>
+                                    <Button Grid.Column="2" Text="Delete" Clicked="InLineDeleteClicked" Command="{Binding DeleteCommand}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
                 <!-- Button Bar -->
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="Add ToDo" Clicked="AddNewClicked"/>
-                </Grid>
+                <VerticalStackLayout Grid.Row="2">
+                    <Button Text="Add ToDo" Clicked="AddNewClicked"/>
+                    <Button Text="Edit Selected ToDo" Clicked="EditClicked"/>
+                    <Button Text="Delete Selected ToDo" Clicked="DeleteClicked"/>
+                </VerticalStackLayout>
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

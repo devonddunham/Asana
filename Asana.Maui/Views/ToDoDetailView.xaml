@@ -1,13 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Asana.Maui.Views.ToDoDetailView">
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+             x:Class="Asana.Maui.Views.ToDoDetailView"
+             Title="ToDoDetailView"
+             NavigatedFrom="ContentPage_NavigatedFrom"
+             NavigatedTo="ContentPage_NavigatedTo"
+             >
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Id: " Grid.Column="0"/>
+            <Entry Text="{Binding Model.Id}" Grid.Column="1" IsReadOnly="True"/>
+            <Label Text="Name: " Grid.Column="2"/>
+            <Entry Text="{Binding Model.Name}" Grid.Column="3"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-        </VerticalStackLayout>
-    </ScrollView>
-
+            <Label Text="Completed: " Grid.Column="0"/>
+            <CheckBox IsChecked="{Binding Model.IsCompleted}" Grid.Column="1"/>
+            <Label Text="Priority:" Grid.Column="2"/>
+            <Picker ItemsSource="{Binding Priorities}"
+                    SelectedItem="{Binding SelectedPriority}" Grid.Column="3"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Description: " Grid.Column="0"/>
+            <Entry Text="{Binding Model.Description}" Grid.Column="1"/>
+        </Grid>
+        <Button Text="Ok" Clicked="OkClicked"/>
+        <Button Text="Cancel" Clicked="CancelClicked"/>
+    </VerticalStackLayout>
 </ContentPage>
