@@ -25,6 +25,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Label Text="Completed: " Grid.Column="0"/>
@@ -32,6 +34,8 @@
             <Label Text="Priority:" Grid.Column="2"/>
             <Picker ItemsSource="{Binding Priorities}"
                     SelectedItem="{Binding SelectedPriority}" Grid.Column="3"/>
+            <Label Text="Due Date: " Grid.Column="4"/>
+            <DatePicker Date="{Binding Model.DueDate}" Grid.Column="5" Format="d"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>

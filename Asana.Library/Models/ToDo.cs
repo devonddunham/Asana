@@ -14,10 +14,13 @@ namespace Asana.Library.Models
         public bool? IsCompleted { get; set; }
         public int Id { get; set; }
 
+        public DateTime? DueDate { get; set; }
+
         public ToDo()
         {
             IsCompleted = false;
             Id = 0;
+            DueDate = DateTime.Today;
         }
 
         public override string ToString()
