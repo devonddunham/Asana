@@ -33,7 +33,7 @@ namespace Asana.Maui.ViewModels
         public ICommand? DeleteCommand { get; set; }
         public void DoDelete()
         {
-            ToDoServiceProxy.Current.DeleteToDo(Model);
+            ToDoServiceProxy.Current.DeleteToDo(Model?.Id ?? 0);
         }
 
         public List<int> Priorities
@@ -58,9 +58,9 @@ namespace Asana.Maui.ViewModels
             }
         }
 
-        public void AddOrUpdateToDo()
+        public async Task AddOrUpdateToDoAsync()
         {
-            ToDoServiceProxy.Current.AddOrUpdate(Model);
+            await ToDoServiceProxy.Current.AddOrUpdate(Model);
         }
     }
 }

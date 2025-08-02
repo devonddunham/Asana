@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Asana.Library.Models;
 using Asana.Maui.ViewModels;
 
@@ -17,10 +18,17 @@ public partial class ToDoDetailView : ContentPage
         Shell.Current.GoToAsync("//MainPage");
     }
 
-    private void OkClicked(object sender, EventArgs e)
+    private async void OkClicked(object sender, EventArgs e)
     {
-        (BindingContext as ToDoDetailViewModel)?.AddOrUpdateToDo();
-        Shell.Current.GoToAsync("//MainPage");
+        try
+        {
+            await (BindingContext as ToDoDetailViewModel)?.AddOrUpdateToDoAsync();
+            await Shell.Current.GoToAsync("//MainPage");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
     }
 
     private void ContentPage_NavigatedFrom(object sender, NavigatedFromEventArgs e)

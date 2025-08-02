@@ -35,10 +35,15 @@ namespace Asana.Maui
         {
 
         }
-        
+
         private void InLineDeleteClicked(object sender, EventArgs e)
         {
             (BindingContext as MainPageViewModel)?.RefreshPage();
+        }
+        
+        private void ProjectClicked(object sender, EventArgs e)
+        {
+            Shell.Current.GoToAsync($"//ProjectPage");
         }
     }
 

@@ -16,5 +16,10 @@
         Title="ToDo Details"
         ContentTemplate="{DataTemplate views:ToDoDetailView}"
         Route="ToDoDetails" />
+    
+    <ShellContent
+        Title="Projects"
+        ContentTemplate="{DataTemplate views:ProjectsView}"
+        Route="ProjectPage"/>
 
 </Shell>

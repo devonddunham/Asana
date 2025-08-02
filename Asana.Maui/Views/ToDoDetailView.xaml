@@ -35,7 +35,7 @@
             <Picker ItemsSource="{Binding Priorities}"
                     SelectedItem="{Binding SelectedPriority}" Grid.Column="3"/>
             <Label Text="Due Date: " Grid.Column="4"/>
-            <DatePicker Date="{Binding Model.DueDate}" Grid.Column="5" Format="d"/>
+            <DatePicker Date="{Binding Model.DueDate}" Grid.Column="5"/>
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>

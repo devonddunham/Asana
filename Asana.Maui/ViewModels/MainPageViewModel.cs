@@ -18,9 +18,16 @@ namespace Asana.Maui.ViewModels
         public MainPageViewModel()
         {
             _toDoSericeProxy = ToDoServiceProxy.Current;
+            IntializeAsync();
         }
 
-        public ToDoDetailViewModel SelectedToDo { get; set; }
+        private async Task IntializeAsync()
+        {
+            await _toDoSericeProxy.InitializeAsync();
+            NotifyPropertyChanged(nameof(ToDos));
+        }
+
+        public ToDoDetailViewModel? SelectedToDo { get; set; }
         public ObservableCollection<ToDoDetailViewModel> ToDos
         {
             get
@@ -59,7 +66,7 @@ namespace Asana.Maui.ViewModels
                 return;
             }
 
-            ToDoServiceProxy.Current.DeleteToDo(SelectedToDo.Model);
+            ToDoServiceProxy.Current.DeleteToDo(SelectedToDo.Model?.Id ?? 0);
             NotifyPropertyChanged(nameof(ToDos));
         }
 
